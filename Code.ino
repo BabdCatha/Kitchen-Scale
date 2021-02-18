@@ -11,16 +11,14 @@
 // Library General Public License for more details.
 //
 // You should have received a copy of the GNU Library General Public
-// License along with this library; if not, see <https://www.gnu.org/licenses/>.
+// License along with this library; if not, see .
 
-#include <Adafruit_GFX.h>    // Core graphics library
-#include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
-#include <SPI.h>             // Arduino SPI library
-#include <Fonts/FreeSerif24pt7b.h> // Font for the display
+#include  <Adafruit_GFX.h> // Core graphics library
+#include  <Adafruit_ST7789.h> // Hardware-specific library for ST7789
+#include  <SPI.h> // Arduino SPI library
+#include  <Fonts/FreeSerif24pt7b.h> // Font for the display
 #include "HX711.h"
- 
-// ST7789 TFT module connections
-#define TFT_CS     D8
+
 #define TFT_RST    D2
 #define TFT_DC     D1
 #define DOUT       D4
@@ -28,7 +26,7 @@
 #define INP        D8
  
 // Initialize Adafruit ST7789 TFT library
-Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
+Adafruit_ST7789 tft = Adafruit_ST7789(TFT_DC, TFT_RST);
 
 HX711 scale;
 
@@ -49,7 +47,7 @@ void setup(void) {
 
   pinMode(D8, INPUT);
 
-  scale.begin(DOUT, CLK);
+ scale.begin(DOUT, CLK);
   scale.set_scale(calibrationFactor);
   scale.tare();
 }
@@ -85,4 +83,3 @@ void loop(){
     tft.print("g");
   }
 }
- 
